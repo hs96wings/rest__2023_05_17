@@ -40,7 +40,6 @@ public class MemberController {
     @PostMapping("/login")
     public RsData<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse res) {
         String accessToken = memberService.getAccessToken(loginRequest.getUsername(), loginRequest.getPassword());
-        res.addHeader("Authentication", accessToken);
 
         return RsData.of(
                 "S-1",
